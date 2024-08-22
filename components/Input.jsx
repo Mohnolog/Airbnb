@@ -1,18 +1,18 @@
 import { StyleSheet, TextInput } from "react-native";
 
-import colors from "../assets/style/colors.jsx";
+import colors from "../assets/style/colors";
 
 export const Input = ({ state, setState, placeholder, secure }) => {
   return (
     <TextInput
       style={styles.textInput}
-      secureTextEntry={secure}
+      secureTextEntry={secure ? true : false}
       placeholder={placeholder}
+      autoCapitalize="none"
       value={state}
       onChangeText={(text) => {
         setState(text);
       }}
-      autoCapitalize="none"
     />
   );
 };

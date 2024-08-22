@@ -1,5 +1,4 @@
-import { StyleSheet, Pressable, Text } from "react-native";
-
+import { StyleSheet, Text, Pressable } from "react-native";
 import { router } from "expo-router";
 
 import colors from "../assets/style/colors";
@@ -7,17 +6,18 @@ import colors from "../assets/style/colors";
 export const RedirectButton = ({ text, screen }) => {
   return (
     <Pressable
+      styles={styles.button}
       onPress={() => {
-        // naviguer vers ...
-        router.push(screen);
+        router.navigate(screen);
       }}
     >
-      <Text style={styles.text}>{text}</Text>
+      <Text style={styles.button}>{text}</Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
+  button: {},
   text: {
     color: colors.grey,
   },

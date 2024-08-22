@@ -3,6 +3,7 @@ import {
   Text,
   ActivityIndicator,
   FlatList,
+  SafeAreaView,
   Pressable,
 } from "react-native";
 
@@ -32,19 +33,15 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <View>
+    <SafeAreaView>
       {loading ? (
         <ActivityIndicator />
       ) : (
         <FlatList
           data={data}
-          keyExtractor={(item) => {
-            return String(item._id);
-          }}
           renderItem={({ item }) => {
             return (
               <Pressable
-                style={{ height: 60, backgroundColor: "salmon" }}
                 onPress={() => {
                   router.navigate({
                     pathname: "/room",
@@ -56,8 +53,11 @@ export default function HomeScreen() {
               </Pressable>
             );
           }}
+          keyExtractor={(item) => {
+            return String(item._id);
+          }}
         />
       )}
-    </View>
+    </SafeAreaView>
   );
 }
